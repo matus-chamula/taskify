@@ -12,6 +12,7 @@ const App = () => {
     e.preventDefault();
     if (todo) {
       setTodoList([...todoList, {id: new Date().getTime(), text: todo, isDone: false}]);
+      setTodo("");
     }
   };
 
@@ -25,6 +26,7 @@ const App = () => {
       />
       <Todos
         todoList={todoList}
+        setTodoList={setTodoList}
       />
     </div>
   );
