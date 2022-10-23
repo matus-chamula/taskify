@@ -8,14 +8,15 @@ interface Props {
   setTodoList: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
-const Todos = ({ todoList }: Props) => {
+const Todos = ({ todoList, setTodoList }: Props) => {
   return (
     <div className="Todos">
       {todoList.map((todo) => (
         <TodoItem
-          id={todo.id}
-          text={todo.text}
-          isDone={todo.isDone}
+          key={todo.id}
+          todo={todo}
+          todoList={todoList}
+          setTodoList={setTodoList}
         />
       ))}
     </div>
