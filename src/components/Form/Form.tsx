@@ -1,36 +1,36 @@
 import React, { useRef } from "react";
-import "./Form.styles.css";
+import { StyledForm, FormInput, FormButton } from "./Form.styles";
 
 interface Props {
-  todo: string;
+  todoText: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const Form = ({ todo, setTodo, handleSubmit }: Props) => {
+const Form = ({ todoText, setTodo, handleSubmit }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   return (
-    <form
+    <StyledForm
       onSubmit={(e) => {
         handleSubmit(e);
         inputRef.current?.blur();
       }}
       className="Form">
-      <input
+      <FormInput
         ref={inputRef}
         type="input"
         placeholder="Create a task"
-        value={todo}
+        value={todoText}
         onChange={(e) => setTodo(e.target.value)}
         className="Form__Input"
       />
-      <button
+      <FormButton
         type="submit"
         className="Form__Button">
         Go
-      </button>
-    </form>
+      </FormButton>
+    </StyledForm>
   );
 };
 

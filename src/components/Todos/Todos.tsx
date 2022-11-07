@@ -1,7 +1,7 @@
 import React from "react";
 import { TodoItem } from "../../components";
 import { Todo } from "../../types/types";
-import "./Todos.styles.css";
+import { TodosWrapper } from "./Todos.styles";
 
 interface Props {
   todoList: Todo[];
@@ -10,7 +10,7 @@ interface Props {
 
 const Todos = ({ todoList, setTodoList }: Props) => {
   return (
-    <div className="Todos">
+    <TodosWrapper>
       {todoList.map((todo) => (
         <TodoItem
           key={todo.id}
@@ -19,7 +19,7 @@ const Todos = ({ todoList, setTodoList }: Props) => {
           setTodoList={setTodoList}
         />
       ))}
-    </div>
+    </TodosWrapper>
   );
 };
 

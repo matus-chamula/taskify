@@ -1,8 +1,8 @@
 import React from "react";
 import { Todo } from "../../types/types";
-import "./TodoItem.styles.css";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
+import { TodoItemWrapper, TodoItemText, TodoItemIcon } from "./TodoItem.styles";
 
 interface Props {
   todo: Todo;
@@ -20,26 +20,26 @@ const TodoItem = ({ todo, todoList, setTodoList }: Props) => {
   };
 
   return (
-    <div className="TodoItem">
-      <span className={`TodoItem__text ${todo.isDone ? "TodoItem__text--done" : ""}`}>{todo.text}</span>
+    <TodoItemWrapper todo={todo}>
+      <TodoItemText>{todo.text}</TodoItemText>
       <div>
         {/* <span
           className="TodoItem__icon"
           onClick={() => handleEdit(todo.id)}>
           <AiFillEdit />
         </span> */}
-        <span
+        <TodoItemIcon
           className="TodoItem__icon"
           onClick={() => handleDelete(todo.id)}>
           <AiFillDelete />
-        </span>
-        <span
+        </TodoItemIcon>
+        <TodoItemIcon
           className="TodoItem__icon"
           onClick={() => handleMarkDone(todo.id)}>
           <MdDone />
-        </span>
+        </TodoItemIcon>
       </div>
-    </div>
+    </TodoItemWrapper>
   );
 };
 
