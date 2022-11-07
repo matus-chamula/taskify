@@ -1,6 +1,6 @@
 import React from "react";
-import TodoItem from "./TodoItem";
-import { Todo } from "../model";
+import { TodoItem } from "../../components";
+import { Todo } from "../../types/types";
 import "./Todos.styles.css";
 
 interface Props {

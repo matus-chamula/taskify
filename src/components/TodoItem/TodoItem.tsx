@@ -1,5 +1,5 @@
 import React from "react";
-import { Todo } from "../model";
+import { Todo } from "../../types/types";
 import "./TodoItem.styles.css";
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";

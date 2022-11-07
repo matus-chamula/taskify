@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Form from "./components/Form";
-import Todos from "./components/Todos";
-import { Todo } from "./model";
+import { Form } from "../src/components";
+import { Todos } from "../src/components/";
+import { Todo } from "./types/types";
 import "./App.styles.css";
 
 const App = () => {
@@ -11,7 +11,10 @@ const App = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (todo) {
-      setTodoList([...todoList, {id: new Date().getTime(), text: todo, isDone: false}]);
+      setTodoList([
+        ...todoList,
+        { id: new Date().getTime(), text: todo, isDone: false },
+      ]);
       setTodo("");
     }
   };
@@ -19,15 +22,8 @@ const App = () => {
   return (
     <div className="App">
       <h2 className="Heading">Taskify</h2>
-      <Form
-        todo={todo}
-        setTodo={setTodo}
-        handleSubmit={handleSubmit}
-      />
-      <Todos
-        todoList={todoList}
-        setTodoList={setTodoList}
-      />
+      <Form todo={todo} setTodo={setTodo} handleSubmit={handleSubmit} />
+      <Todos todoList={todoList} setTodoList={setTodoList} />
     </div>
   );
 };
